@@ -1,32 +1,16 @@
-import * as React from 'react';
-import PostIcon from '@mui/icons-material/Book';
-import UserIcon from '@mui/icons-material/Group';
-import { Admin, Resource, ListGuesser } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
+import * as React from "react";
+import { Admin, Resource  } from 'react-admin';
+import Dashboard from "./Dashboard";
+import { theme } from "./theme";
+import myDataProvider from './dataProvider';
+import drfProvider, { tokenAuthProvider, fetchJsonWithAuthToken, jwtTokenAuthProvider, fetchJsonWithAuthJWTToken } from 'ra-data-django-rest-framework';
 
-import { PostList, PostEdit, PostCreate, PostShow } from './posts';
-import { UserList } from './users';
-import Dashboard from './Dashboard';
-import authProvider from './authProvider';
+let authProvider = jwtTokenAuthProvider({obtainAuthTokenUrl: "http://185.231.115.209:8080//PMWorks/token/"});
 
 const App = () => (
-    <Admin
-        dataProvider={jsonServerProvider(
-            'https://jsonplaceholder.typicode.com'
-        )}
-        authProvider={authProvider}
-        dashboard={Dashboard}
-    >
-        <Resource
-            name="posts"
-            icon={PostIcon}
-            list={PostList}
-            edit={PostEdit}
-            create={PostCreate}
-            show={PostShow}
-        />
-        <Resource name="users" icon={UserIcon} list={UserList} />
-        <Resource name="comments" list={ListGuesser} />
+    <Admin dashboard={Dashboard} theme={theme} disableTelemetry authProvider={authProvider} dataProvider={myDataProvider}>
+         <Resource />
     </Admin>
 );
+
 export default App;
