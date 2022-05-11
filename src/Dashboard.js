@@ -1,11 +1,10 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardHeader from '@mui/material/CardHeader';
-
+import * as React from "react";
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import { Title } from 'react-admin';
 export default () => (
     <Card>
-        <CardHeader title="صفحه مدیریت" />
-        <CardContent>نمودارها و عکس ها...</CardContent>
+        <Title title="داشبورد نرم‌افزار نگهداری و تعمیرات آویژه" />
+        <CardContent>صفحه اول نرم افزار شامل نمودارها و جداول مهم...</CardContent>
     </Card>
-);
+)
