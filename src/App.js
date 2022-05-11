@@ -14,3 +14,27 @@ const App = () => (
 );
 
 export default App;
+
+////////////////////////////////////////
+
+import * as React from "react";
+import { Admin, Resource,ListButton } from 'react-admin';
+import { theme } from "./theme";
+import myDataProvider from './dataProvider';
+import Dashboard from './Dashboard';
+import { PostList, PostCreate, PostEdit, PostShow } from './posts';
+import PostIcon from '@material-ui/icons/Book';
+
+const CommentListButton = () => (
+    <ListButton basePath="/comments" label="Comments" />
+);  
+
+const App = () => (
+    <Admin  dataProvider={myDataProvider}
+            theme={theme}
+            dashboard={Dashboard} >
+      <Resource name="posts" list={PostList} create={PostCreate} edit={PostEdit} show={PostShow} icon={PostIcon} />
+    </Admin>
+);
+
+export default App;
