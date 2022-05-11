@@ -24,13 +24,24 @@ import myDataProvider from './dataProvider';
 import Dashboard from './Dashboard';
 import { PostList, PostCreate, PostEdit, PostShow } from './posts';
 import PostIcon from '@material-ui/icons/Book';
+import farsiMessages from 'ra-language-farsi';
+import polyglotI18nProvider from 'ra-i18n-polyglot';
+
+
+const messages = {
+    'fa': farsiMessages,
+};
+
+const i18nProvider = polyglotI18nProvider(locale => messages[locale], 'fa');
 
 const CommentListButton = () => (
     <ListButton basePath="/comments" label="Comments" />
 );  
 
+
 const App = () => (
     <Admin  dataProvider={myDataProvider}
+            i18nProvider={i18nProvider}
             theme={theme}
             dashboard={Dashboard} >
       <Resource name="posts" list={PostList} create={PostCreate} edit={PostEdit} show={PostShow} icon={PostIcon} />
