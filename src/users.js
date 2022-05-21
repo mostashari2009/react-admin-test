@@ -1,26 +1,14 @@
-import * as React from 'react';
-import { useMediaQuery } from '@mui/material';
-import { SimpleList, List, Datagrid, EmailField, TextField } from 'react-admin';
+import * as React from "react";
+import { List, Datagrid, TextField, EmailField } from 'react-admin';
 
-export const UserList = props => {
-    const isSmall = useMediaQuery(theme => theme.breakpoints.down('md'));
-
-    return (
-        <List title="لیست کاربران" {...props}>
-            {isSmall ? (
-                <SimpleList
-                    primaryText={record => record.name}
-                    secondaryText={record => record.username}
-                    tertiaryText={record => record.email}
-                />
-            ) : (
-                <Datagrid>
-                    <TextField source="id" />
-                    <TextField source="name" />
-                    <TextField source="username" />
-                    <EmailField source="email" />
-                </Datagrid>
-            )}
-        </List>
-    );
-};
+export const UserList = props => (
+    <List {...props}>
+        <Datagrid rowClick="edit">
+            <TextField source="id" />
+            <TextField source="name" />
+            <EmailField source="email" />
+            <TextField source="phone" />
+            <TextField source="company.name" />
+        </Datagrid>
+    </List>
+););
