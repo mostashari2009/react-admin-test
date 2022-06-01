@@ -1,13 +1,19 @@
+@font-face {
+  font-family: 'B Nazanin';
+  src: local('B Nazanin'), url("./fonts/B Nazanin.ttf") format('truetype');
+}
+
 body {
   direction:rtl ;
   margin: 0;
-  font-family: -apple-system,BlinkMacSystemFont,"shabnam","Segoe UI","Roboto",
-  "Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  font-family: 'B Nazanin',-apple-system, BlinkMacSystemFont,'shabnam', 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: 'B Nazanin' ,source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace, Arial, Helvetica, sans-serif;
 }
