@@ -11,61 +11,72 @@ import {
     EditButton,
     SimpleForm,
     TextInput,
-    SelectInput,
     TopToolbar,
-    
+    Filter,
+    downloadCSV,
 } from 'react-admin';
 
 
 import { ImportButton } from "react-admin-import-csv";
-import { CreateButton, ExportButton,Filter } from "ra-ui-materialui";
+import { CreateButton, ExportButton,ListButton } from "ra-ui-materialui";
 
-const PostFilters = [
-    <TextInput source="DelayCode" label="Search" alwaysOn />,
-    <SelectInput optionText="name" />
-];
+
+const importOptions = {
+    parseConfig: {
+        encoding: 'ISO-8859-1'
+    },
+};
+  
+ const DelayFilter = (props) => (
+    <Filter {...props}>
+            <TextInput source="DelayCode__icontains"  label="کد " alwaysOn resettable/>
+            <TextInput source="DelayName__icontains"  label="نام" alwaysOn resettable />
+    </Filter>
+);
 
 
 const ListActions = (props) => {
-    const { className, basePath } = props;
     return (
        
-      <TopToolbar className={className}>
-        <CreateButton basePath={basePath} />
-        <Filter/>
-        < ExportButton />
-        < ImportButton  {...props} />
-      </TopToolbar>
+      <TopToolbar >
+        <CreateButton  />
+        <ExportButton   />
+        <ImportButton  label=" ورودی"   {...importOptions} {...props} />
+      </TopToolbar> 
         
     );
   };
 
-
-
-export const DelayList = props => (
-    <List {...props}  actions={<ListActions />}>
+export const DelayList = (props) => (
+    <List {...props} title="تاخیرات" filters={ <DelayFilter />} actions={<ListActions />}> 
     
         <Datagrid>
             <TextField source="DelayCode" label="کد "/>,
             <TextField source="DelayName"  label="نام"/>
-            <EditButton />
             <ShowButton />
         </Datagrid>
     </List>
 );
 
-const DelayTitle = ({ record }) => {
-    return <span>Post {record ? `"${record.title}"` : ''}</span>;
-};
+//const DelayTitle = ({ record }) => {
+   // return <span>Post {record ? `"${record.title}"` : ''}</span>;
+//};
 
-export const DelayEdit = (props) => (
-    <Edit {...props}>
-        <SimpleForm>
-           <TextInput source="DelayCode"  label="کد "/>
-           <TextInput source="DelayName"  label="نام"/>
-        </SimpleForm>
-    </Edit>
+const DelayEditActions = ({ basePath, data, resource }) => (
+    <TopToolbar>
+        <ListButton/>
+        <ShowButton basePath={basePath} record={data} />
+    </TopToolbar>
 );
+export const DelayEdit = (props) => (
+    <Edit actions={<DelayEditActions />} {...props}>
+        <SimpleForm>
+<TextInput source="DelayCode"  label="کد "/>
+<TextInput source="DelayName"  label="نام"/>
+</SimpleForm>
+</Edit>
+);
+
 
 export const DelayCreate = (props) => (
     <Create {...props}>
@@ -76,13 +87,20 @@ export const DelayCreate = (props) => (
     </Create>
 );
 
+
+const DelayShowActions = ({ basePath, data, resource }) => (
+    <TopToolbar>
+        <ListButton/>
+        <EditButton basePath={basePath} record={data} />
+    </TopToolbar>
+);
+
 export const DelayShow = props => (
-    <Show {...props}>
+    <Show  actions={<DelayShowActions />}  {...props}>
         <SimpleShowLayout>
             <TextField source="DelayCode"  label="کد " />
             <TextField source="DelayName"  label="نام" />
         </SimpleShowLayout>
     </Show>
 );
-
 
