@@ -1,42 +1,28 @@
 
-import * as React from 'react';
-import { useState } from 'react';
-import { useLogin, useNotify, Notification, defaultTheme } from 'react-admin';
-import { ThemeProvider } from '@material-ui/styles';
-import { createTheme } from '@material-ui/core/styles';
+import React from 'react';
+import { Login, LoginForm} from 'react-admin';
+import { withStyles } from '@material-ui/core/styles';
 
-const MyLoginPage = ({ theme }) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const login = useLogin();
-    const notify = useNotify();
-    const submit = e => {
-        e.preventDefault();
-        // will call authProvider.login({ email, password })
-        login({ email, password }).catch(() =>
-            notify('Invalid email or password')
-        );
-    };
+const styles = ({
+    main: { background: '#333' },
+    avatar: {
+        //background: 'url(//cdn.example.com/background.jpg)',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'contain',
+        height: 80,
+    },
+    icon: { display: 'none' },
+});
 
-    return (
-        <ThemeProvider theme={createTheme(defaultTheme)}>
-            <form onSubmit={submit}>
-                <input
-                    name="email"
-                    type="email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                />
-                <input
-                    name="password"
-                    type="password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                />
-            </form>
-            <Notification />
-        </ThemeProvider>
-    );
-};
+const CustomLoginForm = withStyles({
+    button: { background: '#F15922' },
+})(LoginForm);
 
-export default MyLoginPage;
+const MyLoginPage = props => (
+    <Login
+        loginForm={<CustomLoginForm />}
+        {...props}
+    />
+);
+
+export default withStyles(styles)(MyLoginPage);
