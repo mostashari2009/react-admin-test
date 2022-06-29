@@ -7,16 +7,9 @@ import { createTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import {useLogin, useNotify, defaultTheme,Notification,translate} from 'react-admin';
 import PropTypes from 'prop-types';
-import { NonEmptyReferenceField } from 'ra-ui-materialui/lib/field/ReferenceField';
-import logo from './logo.svg';
 import image from './image.png';
-import { useMediaQuery } from '@material-ui/core';
-
 
 const useStyles = makeStyles({
- 
-   
-
   auth:{
     //justifyContent:'center',
     fontFamily:'B Nazanin',
