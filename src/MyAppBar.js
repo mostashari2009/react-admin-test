@@ -3,7 +3,6 @@ import { AppBar  } from 'react-admin';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-//import Logo from './Logo';
 
 const useStyles = makeStyles({
     appbar:{
@@ -14,8 +13,7 @@ const useStyles = makeStyles({
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
-        fontFamily: 'B Nazanin',
-        //backgroundColor: 'green', 
+        fontFamily: 'B Nazanin', 
     },
     spacer: {
         flex: 1,
