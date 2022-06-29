@@ -1,9 +1,13 @@
-import { createTheme } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
+import { defaultTheme } from 'react-admin';
+import merge from 'lodash/merge';
 
-  export const Theme = createTheme({
-  typography: { 
-  fontFamily: 'B Nazanin, Arial',
-  },
+const Theme = merge({}, defaultTheme, {
+    
+    typography: {
+        // Use the system font instead of the default Roboto font.
+        fontFamily: ['B Nazanin','-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Arial', 'sans-serif'].join(','),
+        
+    }, 
+   
 });
+ export default Theme;
