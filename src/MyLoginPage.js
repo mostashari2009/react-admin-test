@@ -5,13 +5,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from '@material-ui/styles';
 import { createTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import {useLogin, useNotify, defaultTheme,Notification,translate} from 'react-admin';
+import {useLogin, useNotify, defaultTheme,Notification,PasswordInput,SimpleForm,TextInput } from 'react-admin';
 import PropTypes from 'prop-types';
 import image from './image.png';
 
+
 const useStyles = makeStyles({
   auth:{
-    //justifyContent:'center',
     fontFamily:'B Nazanin',
     position: 'fixed',
     top: '50%',
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     borderBottomLeftRadius: '16px',
     borderBottomRightRadius: '16px',
     boxShadow:'10px 10px 18px #cbced1',
-    //background:'#0863cc',
+    background:'#0863cc',
   }, 
   authrigh:{
     padding:'30px 10px',
@@ -39,45 +39,27 @@ const useStyles = makeStyles({
     marginRight:'10PX'
     //background:'#0863cc',
   },
-  
- username:{
-    width: '235px',
-    padding:'5px',
-    margin:'8px 10px 4px 10px',
-    border: '1px solid silver',
-    borderStartStartRadius: '15px',
-    borderStartEndRadius:'15px',
-    borderBottomLeftRadius: '15px',
-    borderBottomRightRadius: '15px',
-    boxShadow:'2px 2px 2px #cbced1',
+  form :{
     fontFamily:'B Nazanin',
-    fontSize: '16px',
+    textAlign: 'right',
+  },
+ username:{
+  width:'253px',
 },
 password:{
-    width: '235px',
-    padding:'5px',
-    margin:'4px 10px 4px 10px',
-    border: '1px solid silver',
-    borderStartStartRadius: '15px',
-    borderStartEndRadius:'15px',
-    borderBottomLeftRadius: '15px',
-    borderBottomRightRadius: '15px',
-    boxShadow:'2px 2px 2px #cbced1',
-    fontFamily:'B Nazanin',
-    fontSize: '16px',
-
+    
 },
- botton1:{
-    padding:'2px',  
-    width: '248px',
-    margin:'4px 10px',
-    marginBottom:'14px',
+ button:{
+    //padding:'2px',  
+    width: '263px',
+    margin:'14px 10px',
+    marginBottom:'10px',
     border: '1px solid silver',
     borderStartStartRadius: '16px',
     borderStartEndRadius:'16px',
     borderBottomLeftRadius: '16px',
     borderBottomRightRadius: '16px',
-    boxShadow:'3px 3px 2px #cbced1',
+    boxShadow:'1px 1px 1px #cbced1',
     transition: 'opacity 150ms easeOut 0s',
     fontFamily:'B Nazanin',
     fontSize: '20px',
@@ -108,29 +90,26 @@ const MyLoginPage = ({ theme }) => {
                      <img src={image} alt="logo" className={classes.logoimage} />
                    </div>
                    <div>
-                   <form className={classes.form1}> 
+                   <SimpleForm className={classes.form}> 
                       <div className={classes.input1} >
-                        <input className={classes.username}
-                          placeholder="نام کاربری"
-                          name="username"
-                          type="username"
-                          value={username}
+                        <TextInput className={classes.username}
+                          source="username"
+                          label="نام کاربری "
                           onChange={e => setUsername(e.target.value)}
                          />
-                     </div> 
-                     <div className={classes.input2} >
-                        <input className={classes.password}
-                           placeholder="رمز عبور"
-                           name="password"
-                           type="password"
-                           value={password}
-                           onChange={e => setPassword(e.target.value)}
+                      </div> 
+                      <div className={classes.input2} >
+                        <PasswordInput className={classes.password}
+                        source="password"  
+                        label="رمز عبور "
+                        onChange={e => setPassword(e.target.value)}
                         />
                      </div>
-                  </form> 
-                 <Button variant="contained" onClick={HandleClick} className={classes.botton1} >ورود</Button>
+                     
+                  </SimpleForm> 
+                 
                  </div>
-                         
+                  <Button variant="contained" onClick={HandleClick} className={classes.button} >ورود</Button>       
               </div>  
                
             </div>  
