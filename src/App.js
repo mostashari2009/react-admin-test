@@ -19,7 +19,14 @@ import AddBoxOutlinedIcon from "@material-ui/icons/AddBoxOutlined";
 import TreeMenu from "@bb-tech/ra-treemenu";
 import MyLoginPage from "./MyLoginPage";
 import MyLayout from "./MyLayout";
+import ArrowLeftOutlinedIcon from "@material-ui/icons/ArrowLeftOutlined";
 
+//import WorkRequestList from "./WorkRequest/wrl";
+import WorkRequestList from "./WorkRequest/WorkRequestList";
+import { WorkRequestCreate } from "./WorkRequest/WorkRequestCreate";
+import WorkRequestEdit from "./WorkRequest/WorkRequestEdit";
+import WorkRequestShow from "./WorkRequest/WorkRequestShow";
+ 
 let authProvider = jwtTokenAuthProvider({
   obtainAuthTokenUrl: "http://185.231.115.209:8080/PMWorks/token/",
 });
@@ -55,6 +62,23 @@ const App = () => (
       icon={PostIcon}
       show={DelayShow}
     />
+    <Resource
+      name="PMWorks/WorkRequest"
+      icon={ArrowLeftOutlinedIcon}
+      options={{ label: "درخواست کار" }}
+      list={WorkRequestList}
+      edit={WorkRequestEdit}
+      create={WorkRequestCreate}
+      show={WorkRequestShow}
+    />
+    <Resource name="PMWorks/AssetSubdivision" />
+    <Resource name="PMWorks/FailureMode" />
+    <Resource name="PMWorks/Asset" />
+    <Resource name="PMWorks/WorkPriority" />
+    <Resource name="PMWorks/TypeWr" />
+    <Resource name="PMWorks/Status" />
+    <Resource name="PMWorks/AssetClass" />
+    <Resource name="PMWorks/FailureAsset" />
     <Resource
       name="users"
       options={{ label: "تجهیزات" }}
