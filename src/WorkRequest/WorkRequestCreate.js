@@ -53,28 +53,37 @@ const validateError = (values) => {
 };
 
 const useStyles = makeStyles({
-  Create: {
-    marginLeft: "auto",
-  },
   form: {
-    display: "inline-grid",
+    //display: "inline-grid",
     background: "#fff",
     border: "3px solid #0863cc",
-    justifyContent: "center",
-    fontFamily: "B Nazanin",
     borderStartStartRadius: "5px",
     borderStartEndRadius: "5px",
     borderBottomLeftRadius: "5px",
     borderBottomRightRadius: "5px",
     boxShadow: "2px 2px 4px #cbced1",
-    margin: "auto",
-    "$ .input": {
-      paddingRight: "5px",
-      alignItems: "right",
+
+    "& .MuiInputBase-root": {
+      justifyContent: "center",
+      fontFamily: "B Nazanin",
+      display: "inline-flex",
     },
-    "& .MuiSelect-icon": {
+
+    "& .MuiFilledInput-root": {
       position: "relative",
-      color: "#fff",
+      border: "2px solid #D9D9D9",
+      background: "#fff",
+      fontWeight: "400",
+      fontSize: "1rem",
+      color: "rgb(69, 90, 100)",
+      borderStartStartRadius: "15px",
+      borderStartEndRadius: "15px",
+      borderBottomLeftRadius: "15px",
+      borderBottomRightRadius: "15px",
+    },
+
+    "& .MuiSelect-icon": {
+      marginRight: "200px",
     },
     "& button": {
       borderStartStartRadius: "15px",
@@ -108,24 +117,26 @@ const useStyles = makeStyles({
     "& .RaButton-label-7": {
       paddingRight: "5px",
     },
-  },
-  fir: {
-    marginRight: "10px",
-    display: "inline-grid",
-    "& .MuiFilledInput-root": {
-      border: "2px solid #D9D9D9",
-      background: "#fff",
-      fontWeight: "400",
-      fontSize: "1rem",
-      color: "rgb(69, 90, 100)",
-      borderStartStartRadius: "15px",
-      borderStartEndRadius: "15px",
-      borderBottomLeftRadius: "15px",
-      borderBottomRightRadius: "15px",
+    " & .makeStyles-form-219 .MuiFilledInput-input": {
+      paddingLeft: "5px",
+    },
+    "& .MuiToolbar-root": {
+      backgroundColor: "#fff",
+    },
+    " & .MuiButton-containedPrimary": {
+      padding: "40px, 20px",
+    },
+    "& .MuiSelect-icon.Mui-disabled": {
+      color: "#fff",
     },
     "& .MuiFilledInput-filled:focus": {
       border: "2px solid #0863cc",
     },
+  },
+
+  fir: {
+    marginRight: "10px",
+    display: "inline-grid",
 
     "& .MuiFilledInput-underline:before": {
       content: "",
@@ -149,22 +160,6 @@ const useStyles = makeStyles({
     display: "inline-grid",
     marginRight: "10px",
     marginLeft: "15px",
-    //background:'red',
-    "& .MuiFilledInput-root": {
-      width: "400px",
-      border: "2px solid #D9D9D9",
-      background: "#fff",
-      fontWeight: "400",
-      fontSize: "1rem",
-      color: "rgb(69, 90, 100)",
-      borderStartStartRadius: "15px",
-      borderStartEndRadius: "15px",
-      borderBottomLeftRadius: "15px",
-      borderBottomRightRadius: "15px",
-    },
-    "& .MuiFilledInput-filled:focus": {
-      border: "2px solid #0863cc",
-    },
 
     "& .MuiFilledInput-underline:before": {
       content: "",
@@ -189,7 +184,7 @@ const useStyles = makeStyles({
     "& .MuiFilledInput-root": {
       display: "inline-grid",
       marginRight: "10px",
-      width: "665px",
+      width: "520px",
       height: "100px",
       border: "2px solid #D9D9D9",
       background: "#fff",
@@ -200,7 +195,6 @@ const useStyles = makeStyles({
       color: "rgb(69, 90, 100)",
       boxSizing: "borderBox",
       cursor: "text",
-      //display: "inlineFlex",
     },
 
     "& .MuiFilledInput-underline:before": {
@@ -212,6 +206,10 @@ const useStyles = makeStyles({
     "& .MuiFilledInput-underline:after ": {
       transform: "scaleX(0)",
       transition: "transform 200ms cubic-bezier(0.0, 0, 0.5, 1) 0ms",
+    },
+    "& .MuiInputBase-inputMultiline": {
+      width: "500px",
+      height: "100px",
     },
   },
 });
@@ -306,10 +304,14 @@ export const WorkRequestCreate = (props) => {
         </FormDataConsumer>
 
         <Separator />
-        <DateInput formClassName={classes.fir} label="تاریخ" source="WRDate" />
+        <DateInput
+          formClassName={classes.fir}
+          label="تاریخ خرابی"
+          source="WRDate"
+        />
         <TimeInput
           formClassName={classes.sec}
-          label="ساعت"
+          label=" ساعت خرابی"
           textAlgin="right"
           source="WRTime"
         />
