@@ -62,12 +62,8 @@ const useStyles = makeStyles({
     borderBottomLeftRadius: "5px",
     borderBottomRightRadius: "5px",
     boxShadow: "2px 2px 4px #cbced1",
-
-    "& .MuiInputBase-root": {
-      justifyContent: "center",
-      fontFamily: "B Nazanin",
-      display: "inline-flex",
-    },
+    paddingTop: "12px",
+    paddingBottom: "8PX",
 
     "& .MuiFilledInput-root": {
       position: "relative",
@@ -81,10 +77,6 @@ const useStyles = makeStyles({
       borderBottomLeftRadius: "15px",
       borderBottomRightRadius: "15px",
     },
-
-    "& .MuiSelect-icon": {
-      marginRight: "200px",
-    },
     "& button": {
       borderStartStartRadius: "15px",
       borderStartEndRadius: "15px",
@@ -92,27 +84,26 @@ const useStyles = makeStyles({
       borderBottomRightRadius: "15px",
       margin: "auto",
       fontFamily: "B Nazanin",
+      color: "#0863cc",
     },
     "& .MuiButton-contained": {
       marginRight: "10px",
+      background: "#0863cc",
+      color: "#fff",
+      padding: "5px, 10px",
+      marginBottom: " 20px",
     },
     "& .MuiFormHelperText-contained": {
       height: "0px",
     },
-    "& .MuiFilledInput-input": {
-      paddingRight: "20px",
-    },
-    "& .MuiInputLabel-filled": {
-      transform: "translate(-15px, 17px) scale(1)",
-      color: "#0863cc",
-    },
     "& .MuiInputLabel-formControl": {
       left: "auto",
-      right: "0px",
+      color: "#0863cc",
     },
-    "& .MuiInputLabel-filled.MuiInputLabel-shrink.MuiInputLabel-marginDense ": {
-      transform: "translate(-9px, -7px) scale(0.75)",
+    "& .MuiInputLabel-shrink ": {
+      transform: "translate(30%, -7px ) scale(0.75) !important;",
       background: "#fff",
+      color: "#0863cc",
     },
     "& .RaButton-label-7": {
       paddingRight: "5px",
@@ -135,7 +126,6 @@ const useStyles = makeStyles({
   },
 
   fir: {
-    marginRight: "10px",
     display: "inline-grid",
 
     "& .MuiFilledInput-underline:before": {
@@ -158,8 +148,6 @@ const useStyles = makeStyles({
   },
   sec: {
     display: "inline-grid",
-    marginRight: "10px",
-    marginLeft: "15px",
 
     "& .MuiFilledInput-underline:before": {
       content: "",
@@ -183,8 +171,7 @@ const useStyles = makeStyles({
   text: {
     "& .MuiFilledInput-root": {
       display: "inline-grid",
-      marginRight: "10px",
-      width: "520px",
+      width: "533px",
       height: "100px",
       border: "2px solid #D9D9D9",
       background: "#fff",
