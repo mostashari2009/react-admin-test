@@ -13,7 +13,6 @@ import AssetSubdivisionRefrenceInput from "./AssetSubdivisionRefrenceInput";
 import FailureModeRefrenceInput from "./FailureModeRefrenceInput";
 import WorkPriorityRefrenceInput from "./WorkPriorityRefrenceInput";
 import TypeWrRefrenceInput from "./TypeWrRefrenceInput";
-
 import { DateInput } from "../Components/JalaliDatePicker";
 import { DateInputtoday } from "../Components/JalaliDatePickertoday";
 import { makeStyles } from "@material-ui/core/styles";
@@ -54,17 +53,14 @@ const validateError = (values) => {
 
 const useStyles = makeStyles({
   form: {
-    //display: "inline-grid",
-    background: "#fff",
-    border: "3px solid #0863cc",
-    borderStartStartRadius: "5px",
-    borderStartEndRadius: "5px",
-    borderBottomLeftRadius: "5px",
-    borderBottomRightRadius: "5px",
-    boxShadow: "2px 2px 4px #cbced1",
-    paddingTop: "12px",
+    paddingTop: "15px",
     paddingBottom: "8PX",
 
+    "& .MuiPaper-elevation1": {
+      backgroundColor: "#FFFFFF !important",
+      boxShadow:
+        "0px 2px 4px -1px rgba(0,0,0,0.20), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)",
+    },
     "& .MuiFilledInput-root": {
       position: "relative",
       border: "2px solid #D9D9D9",
@@ -104,16 +100,21 @@ const useStyles = makeStyles({
       transform: "translate(30%, -7px ) scale(0.75) !important;",
       background: "#fff",
       color: "#0863cc",
+      paddingRight: "3px",
     },
     "& .RaButton-label-7": {
       paddingRight: "5px",
     },
-    " & .makeStyles-form-219 .MuiFilledInput-input": {
+    "& .MuiButton-textPrimary": {
+      color: "#0863cc",
+    },
+    "& .makeStyles-form-219 .MuiFilledInput-input": {
       paddingLeft: "5px",
     },
     "& .MuiToolbar-root": {
       backgroundColor: "#fff",
     },
+
     " & .MuiButton-containedPrimary": {
       padding: "40px, 20px",
     },
@@ -122,6 +123,9 @@ const useStyles = makeStyles({
     },
     "& .MuiFilledInput-filled:focus": {
       border: "2px solid #0863cc",
+    },
+    "& input": {
+      padding: "17px 30px 10px",
     },
   },
 
@@ -250,7 +254,7 @@ export const WorkRequestCreate = (props) => {
         <AssetSubdivisionRefrenceInput
           formClassName={classes.sec}
           disabled
-          label="نام تجهیز"
+          label="عنوان تجهیز"
           textAlgin="right"
           source="AssetSubdivisionID"
           reference="PMWorks/AssetSubdivision"
@@ -278,7 +282,7 @@ export const WorkRequestCreate = (props) => {
             formData.AssetSubdivisionID && (
               <ReferenceInput
                 disabled
-                label="نام کلاس تجهیز"
+                label="عنوان کلاس تجهیز"
                 textAlgin="right"
                 source="AssetSubdivisionID"
                 reference="PMWorks/AssetSubdivision"
@@ -323,7 +327,7 @@ export const WorkRequestCreate = (props) => {
           {({ formData, ...rest }) =>
             formData.AssetSubdivisionID && (
               <FailureModeRefrenceInput
-                label="نام خرابی"
+                label="عنوان خرابی"
                 textAlgin="right"
                 source="FailureModeID"
                 reference="PMWorks/FailureAsset"
