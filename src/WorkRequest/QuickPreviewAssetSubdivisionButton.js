@@ -6,10 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AssetSubdivisionList from "./AssetSubdivisionList";
 
 const useStyles = makeStyles({
-  fir: { 
-    fontFamily: 'system-ui',
-     marginBottom: '16px',
-    },
+  fir: { fontFamily: 'system-ui', marginBottom: '16px' },
 
 });
 

@@ -16,7 +16,7 @@ const useStyles = makeStyles({
         }
     },
     but: { fontFamily: 'inherit',
-           marginBottom: '16px',
+           marginBottom: '16px'
     }
 });
 

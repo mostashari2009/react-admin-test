@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     head: {
         display: 'none',
     },
-    fir: { fontFamily: 'B Nazanin' },
+    fir: { fontFamily: 'inherit' },
 });
 
 const NoneActions = props => (

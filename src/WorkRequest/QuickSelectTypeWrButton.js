@@ -7,7 +7,7 @@ import TypeWrList from "./TypeWrList";
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-  fir: { fontFamily: 'system-ui', marginBottom: '16px',background:'#D4AC0D' },
+  fir: { fontFamily: 'system-ui', marginBottom: '16px' },
 
 });
 

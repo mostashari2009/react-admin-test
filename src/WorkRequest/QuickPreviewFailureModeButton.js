@@ -15,9 +15,8 @@ const useStyles = makeStyles({
             maxWidth: '20em'
         }
     },
-    but: { fontFamily: 'B Nazanin',
-           marginBottom: '16px',
-          
+    but: { fontFamily: 'inherit',
+           marginBottom: '16px'
     }
 });
 
