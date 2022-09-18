@@ -229,7 +229,6 @@ const WOPersonnelActions = ({ basePath, data }, props) => {
   return (
     <TopToolbar>
         <ExportButton className={classes.ex} label="خروجی" basePath={basePath} />
-        <ImportButton label="ورودی" resource="PMWorks/WOPersonnel" {...props} {...importOptions}/>
     </TopToolbar>
 );
 };
@@ -824,10 +823,10 @@ const EmptyP = () => {
                 </List>
                 </ReferenceManyField>
             </Tab>
-            <Tab label="نیروی انسانی" path="PMWorks/WOPersonnel">
+            <Tab label="نیروی انسانی" path="PMWorks/WOPersonnelSum">
                 <ReferenceManyField
                     addLabel={false}
-                    reference="PMWorks/WOPersonnel"
+                    reference="PMWorks/WOPersonnelSum"
                     target="WOTaskID__WOAssetSubdivisionID__WorkOrderID"
                     filter={{ WOTaskID__WOAssetSubdivisionID__WorkOrderID: record }}
                 >
@@ -846,7 +845,7 @@ const EmptyP = () => {
                             <TextField source="PersonnelNetCode" />
                         </ReferenceField>
                         <JalaaliDateField label="تاریخ انجام" textAlgin="right" source="WorkDate"/>
-                        <NumberField label="مدت زمان انجام" textAlgin="right" source="WorkTime" />
+                        <NumberField label="مدت زمان انجام" textAlgin="right" source="WorkTime__sum" />
                     </Datagrid>
                 </List>
                 </ReferenceManyField>
