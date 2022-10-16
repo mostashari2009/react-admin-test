@@ -356,14 +356,15 @@ const useStyles = makeStyles({
 
     "& .MuiFormControl-marginDense": {
       border: "1px solid #DCDCDC",
-      paddingLeft: "5px",
-      paddingRight: "5px",
       right: "5px",
       margin: "0",
+      height: "70px",
+      width: "120px",
+      paddingRight: "5px",
     },
+
     "& .MuiInputLabel-marginDense": {
-      right: "10px",
-      padding: "5px",
+      paddingRight: "5px",
     },
     "& .MuiTypography-body2": {
       fontSize: "1rem",
@@ -372,28 +373,18 @@ const useStyles = makeStyles({
       padding: "4px 4px 4px 4px",
       fontSize: "0.9rem",
     },
-    "& .RaDatagrid-headerCell-85:last-child": {
-      borderTopRightRadius: "0px",
-    },
-    "& .RaDatagrid-headerCell-85:first-child ": {
-      borderTopLeftRadius: "0px",
-    },
   },
   sho: {
-    "& .MuiTableCell-head": {
-      backgroundColor: "#DCDCDC",
-    },
     display: "inline-block",
+    textAlignLast: "right",
+  },
+  sec: {
+    display: "inline-block",
+    textAlignLast: "right",
   },
 
   ex: {
     fontFamily: "inherit",
-  },
-
-  sec: {
-    display: "inline-block",
-    margin: "0px",
-    textAlignLast: "right",
   },
   gridcontainer: {
     display: "grid",
@@ -820,7 +811,7 @@ const WorkOrderShow = (props) => {
               />
 
               <ReferenceField
-                className={classes.sec}
+                className={classes.sho}
                 label="خرابی"
                 textAlgin="right"
                 source="WorkRequestID__FailureModeID"
@@ -829,7 +820,7 @@ const WorkOrderShow = (props) => {
                 <TextField source="FailureModeName" />
               </ReferenceField>
               <ReferenceField
-                className={classes.sec}
+                className={classes.sho}
                 label="وضعیت"
                 textAlgin="right"
                 source="StatusID"
@@ -837,8 +828,16 @@ const WorkOrderShow = (props) => {
               >
                 <TextField source="StatusName" />
               </ReferenceField>
+              <hr
+                style={{
+                  backgroundColor: "#fff",
+                  borderWidth: "0px",
+                  padding: "0",
+                  margin: "0",
+                }}
+              />
               <TextField
-                className={classes.sho}
+                className={classes.sec}
                 label="دپارتمان"
                 textAlgin="right"
                 // source="WODescription"
@@ -850,7 +849,6 @@ const WorkOrderShow = (props) => {
                     .locale("fa")
                     .format("jD jMMMM jYYYY")
                 }
-                className={classes.sho}
                 label="تاریخ ثبت"
                 textAlgin="right"
                 source="WODateOfRegistration"
@@ -862,25 +860,23 @@ const WorkOrderShow = (props) => {
                     .locale("fa")
                     .format("jD jMMMM jYYYY")
                 }
-                className={classes.sho}
                 label="تاریخ شروع"
                 textAlgin="right"
                 source="DateOfPlanStart"
               />
               <FunctionField
-                className={classes.sec}
                 render={(record) =>
                   jMoment(data.DateOfPlanFinish)
                     .locale("fa")
                     .format("jD jMMMM jYYYY")
                 }
-                className={classes.sho}
+                className={classes.sec}
                 label="تاریخ پایان"
                 textAlgin="right"
                 source="DateOfPlanFinish"
               />
               <TextField
-                className={classes.sho}
+                className={classes.sec}
                 label="توضیحات"
                 textAlgin="right"
                 source="WODescription"
